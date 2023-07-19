@@ -70,6 +70,13 @@ li {
   margin: 10px 0;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 8px 0;
+}
+
+.expensesList .name,
+.expensesList .price {
+  flex: 1;
 }
 
 span.edit,
@@ -104,4 +111,17 @@ input.edit-price-input::placeholder {
 input.edit-name-input:focus,
 input.edit-price-input:focus {
   border-color: #ffcc00;
+}
+
+
+.totalExpensesContainer {
+  font-family: "Arial", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffcc00; 
+  margin-top: 20px;
+  padding: 10px;
+  border: 2px solid #ffcc00; 
+  border-radius: 5px;
+  background-color: #000000;
 }

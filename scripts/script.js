@@ -28,6 +28,23 @@ function addExpense() {
 	expensesList.append(listItem);
 	itemName.val('');
 	itemPrice.val('');
+
+	totalPrice();
+}
+
+function totalPrice() {
+	const expensesList = $('#expensesList');
+	const expenseItems = expensesList.find('.price');
+
+	let totalExpenses = 0;
+
+	expenseItems.each(function () {
+		const price = parseFloat($(this).text());
+		totalExpenses += price;
+	});
+
+	const totalExpensesElement = $('#totalExpenses');
+	totalExpensesElement.text(totalExpenses.toFixed(2));
 }
 
 $(document).on('click', '.edit', function () {
@@ -53,6 +70,8 @@ $(document).on('click', '.edit', function () {
 			const newPrice = priceInput.val();
 			price.text(newPrice).show();
 			priceInput.hide();
+
+			totalPrice();
 		}
 	});
 });
