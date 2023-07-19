@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <link rel="stylesheet" href="styles/styles.css">
     <title>TODO-list</title>
 </head>
 <body>
-    <div class="main-container" id="main-container">
+    <div class="mainContainer" id="mainContainer">
 
-        <div class="expenses-container" id="expenses-container">
+        <div class="expensesContainer" id="expensesContainer">
             <h1>Item</h1>
-            <input class="item-name" id="item-name" type="text" placeholder="What is the item?">
+            <input class="itemName" id="itemName" type="text" placeholder="What is the item?">
             <h1>Price</h1>
-            <input class="item-price" id="item-price" type="text" placeholder="What is the item?">
+            <input class="itemPrice" id="itemPrice" type="text" placeholder="What is the price?">
         </div>
 
-        <button class="item-add" id="item-add">Add</button>
-        <ul id="expenses-list"></ul>
+        <button class="itemAdd" id="itemAdd">Add</button>
+        <ul class="expensesList" id="expensesList"></ul>
       </div>
     <script src="/scripts/script.js"></script>
 </body>
