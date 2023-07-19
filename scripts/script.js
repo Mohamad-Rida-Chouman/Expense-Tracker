@@ -1,43 +1,46 @@
 function listElement(name, price) {
     return `<li>
       <span class="edit">&#9998;</span>
-      <span class="remove">&#128465</span>
-      <span class="name" id="name">${name}</span>
-      <input type="text" style="display: none;"/>
+      <span class="remove">&#128465;</span>
+      <span class="name">${name}</span>
+      <input type="text" style="display: none;" class="edit-name-input"/>
       <span class="price">${price}</span>
-      <input type="text" style="display: none;"/>
+      <input type="text" style="display: none;" class="edit-price-input"/>
     </li>`;
-}
-
-function addExpense() {
+  }
+  
+  function addExpense() {
     const itemName = $("#itemName");
     const itemPrice = $("#itemPrice");
     const expensesList = $("#expensesList");
-
-    if (itemName.val().trim() === "" || itemPrice.val().trim() === "") 
-        return ("Please type valid values");
-    
-    const listItem = $(listElement(itemName.val(),itemPrice.val()));
-
+  
+    if (itemName.val().trim() === "" || itemPrice.val().trim() === "") {
+      alert("Please type valid values");
+      return;
+    }
+  
+    const listItem = $(listElement(itemName.val(), itemPrice.val()));
+  
     listItem.find(".remove").click(function () {
-        listItem.remove()
-      })
+      listItem.remove();
+    });
+  
+    expensesList.append(listItem);
+    itemName.val("");
+    itemPrice.val("");
+  }
+  
 
-    expensesList.append(listItem)
-    itemName.val("")
-    itemPrice.val("")
-}
-
-$(document).ready(function () {
+  
+  $(document).ready(function () {
     const itemAdd = $("#itemAdd");
   
-    // Click event for the add button
     itemAdd.click(addExpense);
   
-    // Keyup event for the todo input field
     $("#itemName, #itemPrice").keyup(function (event) {
       if (event.keyCode === 13) {
         addExpense();
       }
     });
   });
+  
