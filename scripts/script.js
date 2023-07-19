@@ -30,7 +30,32 @@ function listElement(name, price) {
     itemPrice.val("");
   }
   
-
+  $(document).on("click", ".edit", function () {
+    const listItem = $(this).closest("li");
+    const name = listItem.find(".name");
+    const price = listItem.find(".price");
+  
+    name.hide();
+    price.hide();
+  
+    const nameInput = listItem.find(".edit-name-input");
+    const priceInput = listItem.find(".edit-price-input");
+  
+    nameInput.val(name.text()).show().focus();
+    priceInput.val(price.text()).show();
+  
+    listItem.find("input").keyup(function (event) {
+      if (event.keyCode === 13) {
+        const newName = nameInput.val();
+        name.text(newName).show();
+        nameInput.hide();
+  
+        const newPrice = priceInput.val();
+        price.text(newPrice).show();
+        priceInput.hide();
+      }
+    });
+  });
   
   $(document).ready(function () {
     const itemAdd = $("#itemAdd");
