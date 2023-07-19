@@ -19,6 +19,10 @@ function addExpense() {
     
     const listItem = $(listElement(itemName.val(),itemPrice.val()));
 
+    listItem.find(".remove").click(function () {
+        listItem.remove()
+      })
+
     expensesList.append(listItem)
     itemName.val("")
     itemPrice.val("")
